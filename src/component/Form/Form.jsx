@@ -31,6 +31,9 @@ function Form() {
 
     return (
         <div className="formRegistrasi">
+            <div className="img">
+                <img src={image} width="500px" alt="background" />
+            </div>
             <form className="form" onSubmit={handleSubmit}>
                 <h1>Form Registarsion</h1>
 
@@ -76,84 +79,85 @@ function Form() {
                 />
 
                 <h3>Jenis Kelamin:</h3>
-                <span>Laki-laki</span>
-                <input
-                    type="radio"
-                    name="gender"
-                    id="genderMale"
-                    value="Laki-Laki"
-                    onChange={(event) => setGender(event.target.value)}
-                />
-                <span>Perempuan</span>
-                <input
-                    type="radio"
-                    name="gender"
-                    id="genderFemale"
-                    value="Perempuan"
-                    onChange={(event) => setGender(event.target.value)}
-                />
+                <div className="gender">
+                    <span>Laki-laki</span>
+                    <input
+                        type="radio"
+                        name="gender"
+                        id="genderMale"
+                        value="Laki-Laki"
+                        onChange={(event) => setGender(event.target.value)}
+                    />
+                    <span>Perempuan</span>
+                    <input
+                        type="radio"
+                        name="gender"
+                        id="genderFemale"
+                        value="Perempuan"
+                        onChange={(event) => setGender(event.target.value)}
+                    />
+                </div>
 
                 <h3>Skill: </h3>
-                <span>Coding</span>
-                <input
-                    type="checkbox"
-                    name="skill"
-                    id="coding"
-                    value="Coding"
-                    onChange={(event) => {
-                        if (event.target.checked) {
-                            setSkill([...skill, event.target.value]);
-                        } else {
-                            setSkill(
-                                skill.filter(
-                                    (skil) => skil !== event.target.value
-                                )
-                            );
-                        }
-                    }}
-                />
-                <span>Design</span>
-                <input
-                    type="checkbox"
-                    name="skill"
-                    id="design"
-                    value="Design"
-                    onChange={(event) => {
-                        if (event.target.checked) {
-                            setSkill([...skill, event.target.value]);
-                        } else {
-                            setSkill(
-                                skill.filter(
-                                    (skil) => skil !== event.target.value
-                                )
-                            );
-                        }
-                    }}
-                />
-                <span>Gaming</span>
-                <input
-                    type="checkbox"
-                    name="skill"
-                    id="gaming"
-                    value="Gaming"
-                    onChange={(event) => {
-                        if (event.target.checked) {
-                            setSkill([...skill, event.target.value]);
-                        } else {
-                            setSkill(
-                                skill.filter(
-                                    (skil) => skil !== event.target.value
-                                )
-                            );
-                        }
-                    }}
-                />
+                <div className="skills">
+                    <span>Coding</span>
+                    <input
+                        type="checkbox"
+                        name="skill"
+                        id="coding"
+                        value="Coding"
+                        onChange={(event) => {
+                            if (event.target.checked) {
+                                setSkill([...skill, event.target.value]);
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skil) => skil !== event.target.value
+                                    )
+                                );
+                            }
+                        }}
+                    />
+                    <span>Design</span>
+                    <input
+                        type="checkbox"
+                        name="skill"
+                        id="design"
+                        value="Design"
+                        onChange={(event) => {
+                            if (event.target.checked) {
+                                setSkill([...skill, event.target.value]);
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skil) => skil !== event.target.value
+                                    )
+                                );
+                            }
+                        }}
+                    />
+                    <span>Gaming</span>
+                    <input
+                        type="checkbox"
+                        name="skill"
+                        id="gaming"
+                        value="Gaming"
+                        onChange={(event) => {
+                            if (event.target.checked) {
+                                setSkill([...skill, event.target.value]);
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skil) => skil !== event.target.value
+                                    )
+                                );
+                            }
+                        }}
+                    />
+                </div>
 
                 <input type="submit" />
             </form>
-            <div className="img">
-                <img src={image} alt="background" />
-            </div>
         </div>
     );
 }
