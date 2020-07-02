@@ -7,7 +7,7 @@ function Form() {
     const [address, setAddress] = useState("");
     const [date, setDate] = useState("");
     const [gender, setGender] = useState("");
-    const [skill, setSkill] = useState("");
+    const [skill, setSkill] = useState([]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -20,20 +20,23 @@ function Form() {
         Tgl-Lahir: ${date}
         Jenis kelamin: ${gender}
         Kemampuan: ${skill}`);
+        console.log(skill);
     }
 
     return (
         <div>
             <form className="form" onSubmit={handleSubmit}>
-                <label htmlFor="fullName">Nama: </label>
-                <input
-                    type="text"
-                    name="name"
-                    id="fullName"
-                    value={name}
-                    onChange={(event) => setName(event.target.value)}
-                />
-                <label htmlFor="email">Email: </label>
+                <div className="formDiv">
+                    <h3>Name: </h3>
+                    <input
+                        type="text"
+                        name="name"
+                        id="fullName"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                    />
+                </div>
+                <h3>Email: </h3>
                 <input
                     type="email"
                     name="email"
@@ -41,7 +44,7 @@ function Form() {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                 />
-                <label htmlFor="password">Password: </label>
+                <h3>Password:</h3>
                 <input
                     type="password"
                     name="password"
@@ -49,14 +52,14 @@ function Form() {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                 />
-                <label htmlFor="address">Alamat: </label>
+                <h3>Alamat :</h3>
                 <textarea
                     name="address"
                     id="address"
                     value={address}
                     onChange={(event) => setAddress(event.target.value)}
                 ></textarea>
-                <label htmlFor="birthDate">Tgl Lahir: </label>
+                <h3>Tanggal Lahir:</h3>
                 <input
                     type="date"
                     name="date"
@@ -65,7 +68,7 @@ function Form() {
                     onChange={(event) => setDate(event.target.value)}
                 />
                 <div className="gender">
-                    <label>Jenis kelamin: </label>
+                    <h3>Jenis Kelamin:</h3>
                     <span>Laki-laki</span>
                     <input
                         type="radio"
@@ -74,7 +77,7 @@ function Form() {
                         value="Laki-Laki"
                         onChange={(event) => setGender(event.target.value)}
                     />
-                    <span>Permpuan</span>
+                    <span>Perempuan</span>
                     <input
                         type="radio"
                         name="gender"
@@ -91,7 +94,17 @@ function Form() {
                         name="skill"
                         id="coding"
                         value="Coding"
-                        onChange={(event) => setSkill(event.target.value)}
+                        onChange={(event) => {
+                            if (event.target.checked) {
+                                setSkill([...skill, event.target.value]);
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skil) => skil !== event.target.value
+                                    )
+                                );
+                            }
+                        }}
                     />
                     <span>Design</span>
                     <input
@@ -99,7 +112,17 @@ function Form() {
                         name="skill"
                         id="design"
                         value="Design"
-                        onChange={(event) => setSkill(event.target.value)}
+                        onChange={(event) => {
+                            if (event.target.checked) {
+                                setSkill([...skill, event.target.value]);
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skil) => skil !== event.target.value
+                                    )
+                                );
+                            }
+                        }}
                     />
                     <span>Gaming</span>
                     <input
@@ -107,7 +130,17 @@ function Form() {
                         name="skill"
                         id="gaming"
                         value="Gaming"
-                        onChange={(event) => setSkill(event.target.value)}
+                        onChange={(event) => {
+                            if (event.target.checked) {
+                                setSkill([...skill, event.target.value]);
+                            } else {
+                                setSkill(
+                                    skill.filter(
+                                        (skill) => skill !== event.target.value
+                                    )
+                                );
+                            }
+                        }}
                     />
                 </div>
                 <input type="submit" />
