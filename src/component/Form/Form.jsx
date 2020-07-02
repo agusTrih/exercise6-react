@@ -42,6 +42,7 @@ function Form() {
                     type="text"
                     name="name"
                     id="fullName"
+                    placeholder="Type here.."
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                 />
@@ -51,6 +52,7 @@ function Form() {
                     type="email"
                     name="email"
                     id="email"
+                    placeholder="Type here.."
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                 />
@@ -67,6 +69,7 @@ function Form() {
                     name="address"
                     id="address"
                     value={address}
+                    placeholder="Type here.."
                     onChange={(event) => setAddress(event.target.value)}
                 ></textarea>
                 <h3>Tanggal Lahir:</h3>
