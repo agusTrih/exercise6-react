@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import swal from "sweetalert";
+import image from "../../assets/img/image.svg";
 import "./form.css";
 function Form() {
     const [name, setName] = useState("");
@@ -12,29 +14,35 @@ function Form() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        alert(`Selamat Anda Telah Berhasil Mendaftar
-        Nama: ${name} 
-        Email: ${email} 
-        Password: ${password} 
-        Alamat: ${address} 
-        Tgl-Lahir: ${date}
-        Jenis kelamin: ${gender}
-        Kemampuan: ${skill}`);
+        swal({
+            title: "Selamat Anda Telah Berhasil Mendaftar",
+            text: `
+            Nama: ${name} 
+            Email: ${email} 
+            Password: ${password} 
+            Alamat: ${address} 
+            Tgl-Lahir: ${date}
+            Jenis kelamin: ${gender}
+            Kemampuan: ${skill}`,
+            icon: "success",
+            button: "Okay!",
+        });
     }
 
     return (
-        <div>
+        <div className="formRegistrasi">
             <form className="form" onSubmit={handleSubmit}>
-                <div className="formDiv">
-                    <h3>Name: </h3>
-                    <input
-                        type="text"
-                        name="name"
-                        id="fullName"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
-                    />
-                </div>
+                <h1>Form Registarsion</h1>
+
+                <h3>Name: </h3>
+                <input
+                    type="text"
+                    name="name"
+                    id="fullName"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                />
+
                 <h3>Email: </h3>
                 <input
                     type="email"
@@ -66,84 +74,86 @@ function Form() {
                     value={date}
                     onChange={(event) => setDate(event.target.value)}
                 />
-                <div className="gender">
-                    <h3>Jenis Kelamin:</h3>
-                    <span>Laki-laki</span>
-                    <input
-                        type="radio"
-                        name="gender"
-                        id="genderMale"
-                        value="Laki-Laki"
-                        onChange={(event) => setGender(event.target.value)}
-                    />
-                    <span>Perempuan</span>
-                    <input
-                        type="radio"
-                        name="gender"
-                        id="genderFemale"
-                        value="Perempuan"
-                        onChange={(event) => setGender(event.target.value)}
-                    />
-                </div>
-                <div className="skill">
-                    <p>Skill: </p>
-                    <span>Coding</span>
-                    <input
-                        type="checkbox"
-                        name="skill"
-                        id="coding"
-                        value="Coding"
-                        onChange={(event) => {
-                            if (event.target.checked) {
-                                setSkill([...skill, event.target.value]);
-                            } else {
-                                setSkill(
-                                    skill.filter(
-                                        (skil) => skil !== event.target.value
-                                    )
-                                );
-                            }
-                        }}
-                    />
-                    <span>Design</span>
-                    <input
-                        type="checkbox"
-                        name="skill"
-                        id="design"
-                        value="Design"
-                        onChange={(event) => {
-                            if (event.target.checked) {
-                                setSkill([...skill, event.target.value]);
-                            } else {
-                                setSkill(
-                                    skill.filter(
-                                        (skil) => skil !== event.target.value
-                                    )
-                                );
-                            }
-                        }}
-                    />
-                    <span>Gaming</span>
-                    <input
-                        type="checkbox"
-                        name="skill"
-                        id="gaming"
-                        value="Gaming"
-                        onChange={(event) => {
-                            if (event.target.checked) {
-                                setSkill([...skill, event.target.value]);
-                            } else {
-                                setSkill(
-                                    skill.filter(
-                                        (skill) => skill !== event.target.value
-                                    )
-                                );
-                            }
-                        }}
-                    />
-                </div>
+
+                <h3>Jenis Kelamin:</h3>
+                <span>Laki-laki</span>
+                <input
+                    type="radio"
+                    name="gender"
+                    id="genderMale"
+                    value="Laki-Laki"
+                    onChange={(event) => setGender(event.target.value)}
+                />
+                <span>Perempuan</span>
+                <input
+                    type="radio"
+                    name="gender"
+                    id="genderFemale"
+                    value="Perempuan"
+                    onChange={(event) => setGender(event.target.value)}
+                />
+
+                <h3>Skill: </h3>
+                <span>Coding</span>
+                <input
+                    type="checkbox"
+                    name="skill"
+                    id="coding"
+                    value="Coding"
+                    onChange={(event) => {
+                        if (event.target.checked) {
+                            setSkill([...skill, event.target.value]);
+                        } else {
+                            setSkill(
+                                skill.filter(
+                                    (skil) => skil !== event.target.value
+                                )
+                            );
+                        }
+                    }}
+                />
+                <span>Design</span>
+                <input
+                    type="checkbox"
+                    name="skill"
+                    id="design"
+                    value="Design"
+                    onChange={(event) => {
+                        if (event.target.checked) {
+                            setSkill([...skill, event.target.value]);
+                        } else {
+                            setSkill(
+                                skill.filter(
+                                    (skil) => skil !== event.target.value
+                                )
+                            );
+                        }
+                    }}
+                />
+                <span>Gaming</span>
+                <input
+                    type="checkbox"
+                    name="skill"
+                    id="gaming"
+                    value="Gaming"
+                    onChange={(event) => {
+                        if (event.target.checked) {
+                            setSkill([...skill, event.target.value]);
+                        } else {
+                            setSkill(
+                                skill.filter(
+                                    (skil) => skil !== event.target.value
+                                )
+                            );
+                        }
+                    }}
+                />
+
                 <input type="submit" />
             </form>
+            <div className="img">
+                <img src={image} alt="background" />
+            </div>
         </div>
     );
 }

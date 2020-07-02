@@ -2,15 +2,30 @@
     margin: 0;
     padding: 0;
 }
+.formRegistrasi {
+    display: flex;
+    flex-direction: row;
+}
 .form {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-
     justify-content: center;
-    align-items: center;
+    width: 50%;
+    margin-left: 50px;
 }
 input,
 textarea {
     padding: 10px;
     font-size: 20px;
+}
+h3 {
+    align-self: flex-start;
+}
+span {
+    align-self: flex-start;
+}
+
+.img {
+    width: 50%;
 }
