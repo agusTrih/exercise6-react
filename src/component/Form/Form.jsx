@@ -20,7 +20,6 @@ function Form() {
         Tgl-Lahir: ${date}
         Jenis kelamin: ${gender}
         Kemampuan: ${skill}`);
-        console.log(skill);
     }
 
     return (
